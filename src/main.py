@@ -1,19 +1,26 @@
 from textnode import TextNode, TextType
-from copystatic import recursive_mover
+from copystatic import copy_files_recursive
+from generate_page import generate_page, generate_pages_recursive
+import os, shutil
+	
+dir_path_static = "./static"
+dir_path_public = "./public"
+dir_path_content = "./content"
+template_path = "./template.html"
+
 
 def main():
-	
-	print("hello")
-	if os.path.exists("public"):
-		print("Deleting /public")
-		shutil.rmtree("public")
+    print("Deleting public directory...")
+    if os.path.exists(dir_path_public):
+        shutil.rmtree(dir_path_public)
 
-	recursive_mover("static")
+    print("Copying static files to public directory...")
+    copy_files_recursive(dir_path_static, dir_path_public)
 
-
+    print("Generating content")
+    generate_pages_recursive(dir_path_content,template_path,dir_path_public)
 
 
 main()
-
-
+			 
 
