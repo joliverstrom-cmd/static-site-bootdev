@@ -1,10 +1,19 @@
 from textnode import TextNode, TextType
+from copystatic import recursive_mover
 
 def main():
-	print("Hello world")
+	
+	print("hello")
+	if os.path.exists("public"):
+		print("Deleting /public")
+		shutil.rmtree("public")
 
-	test_node = TextNode("try this", TextType.BOLD, "www.123.abc")
+	recursive_mover("static")
 
-	print(test_node)
+
+
 
 main()
+
+
+
