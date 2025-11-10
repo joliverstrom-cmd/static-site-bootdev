@@ -97,7 +97,7 @@ class TestBlock_To_blocktype(unittest.TestCase):
         
         self.assertEqual(
             block_to_block_type(block),
-            BlockType.LI
+            BlockType.OL
         )
 
     def test_wrong_ordered_list(self):
@@ -128,6 +128,6 @@ class TestBlock_To_blocktype(unittest.TestCase):
         block = "- list\n- items"
         self.assertEqual(block_to_block_type(block), BlockType.UL)
         block = "1. list\n2. items"
-        self.assertEqual(block_to_block_type(block), BlockType.LI)
+        self.assertEqual(block_to_block_type(block), BlockType.OL)
         block = "paragraph"
         self.assertEqual(block_to_block_type(block), BlockType.PARA)

@@ -7,7 +7,7 @@ class BlockType(Enum):
     CODE = "code"
     QUOTE = "quote"
     UL = "unordered_list"
-    LI = "ordered_list"
+    OL = "ordered_list"
 
 def block_to_block_type(block):
 
@@ -46,7 +46,7 @@ def block_to_block_type(block):
                 break
             dig += 1 
         if li:
-            return BlockType.LI
+            return BlockType.OL
         
     return BlockType.PARA
     
